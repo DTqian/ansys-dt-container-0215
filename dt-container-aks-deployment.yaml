@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: DTcontainer_AKS
+  name: dt-container-aks
 spec:
   selector:
       matchLabels:
-        app: DTcontainer_AKS
+        app: dt-container-aks
   replicas: 3
   template:
       metadata:
         labels:
-            app: DTcontainer_AKS
+            app: dt-container-aks
       spec:
         containers:
-        - name: ansys/hybrid_twin
+        - name: ansys-hybrid-twin
           image: tbcontainer220629.azurecr.io/ansys/hybrid_twin:23.1
           ports:
             - containerPort: 9090
@@ -21,10 +21,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: DTcontainer_AKS_loadbalancer
+  name: dt-container-aks-loadbalancer
 spec:
   type: LoadBalancer
   ports:
   - port: 9090
   selector:
-    app: DTcontainer_AKS
+    app: dt-container-aks

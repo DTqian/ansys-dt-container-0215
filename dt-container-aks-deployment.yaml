@@ -14,7 +14,7 @@ spec:
       spec:
         containers:
         - name: ansys-hybrid-twin
-          image: tbcontainer220629.azurecr.io/ansys/hybrid_twin:23.1
+          image: dtcontainer0216.azurecr.io/ansys/hybrid_twin:v1.0.0
           ports:
             - containerPort: 9080
           resources:
@@ -22,8 +22,8 @@ spec:
               memory: "128Mi"
               cpu: "100m"
             limits:
-              memory: "256"
-              cpu: 11400G
+              memory: "256Mi"
+              cpu: "500m"
 ---
 apiVersion: v1
 kind: Service
